@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Into"
+title: "Intro"
 author_profile: true
 redirect_from: 
   - /about/
@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-I'm the co-founder and CTO of Deep Render, where I lead the team to build the world's first AI video codec. Prior to Deep Render, I studied ML at Imperial College London, and Aeronautical & Spacecraft Engineering at the University of Southampton. My intersts lie in Machine learning, Software engineering and Mechanical Engineering.   
+I'm the co-founder and CTO of Deep Render, where I lead the team to build the world's first AI video codec. Prior to Deep Render, I studied ML at Imperial College London, and Aeronautical & Spacecraft Engineering at the University of Southampton. My interests lie in Machine learning, Software engineering and Mechanical Engineering.   
 
 
 
