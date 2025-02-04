@@ -1,16 +1,12 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Into"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-
-
-Intro
-======
 
 I'm the co-founder and CTO of Deep Render, where I lead the team to build the world's first AI video codec. Prior to Deep Render, I studied ML at Imperial College London, and Aeronautical & Spacecraft Engineering at the University of Southampton. My intersts lie in Machine learning, Software engineering and Mechanical Engineering.   
 
