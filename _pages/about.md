@@ -7,6 +7,38 @@ redirect_from:
   - /about.html
 ---
 
+
+
+Intro
+======
+
+I'm the co-founder and CTO of Deep Render, where I lead the team to build the world's first AI video codec. Prior to Deep Render, I studied ML at Imperial College London, and Aeronautical & Spacecraft Engineering at the University of Southampton. My intersts lie in Machine learning, Software engineering and Mechanical Engineering.   
+
+
+
+Deep Render and AI codecs
+======
+
+Deep Render was founded in 2019 by Christian Besenbruch and I. We set out build an entirely new method for compressing video. We spend the next 4 years fundraising, building the team, the hardware infrasturcture and the team. Along this journey, we've managed to achieve the following:
+- Build the world's first AI codec
+- Building the world's best AI compression team
+- Building the world's best ML Deployment team for iOS, Intel and Android platforms
+- Building an AI compute specialised data centre with over 200 GPUs
+- Raising $15m in funding from top-tier investors 
+- File 120+ patents
+
+
+ML research
+======
+
+Prior to Deep Render, I worked with the Dyson Robotics lab on Visual Odometry and camera calibration with Neural networks. 
+
+
+
+<!--
+
+
+
 This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
 
 A data-driven personal website
@@ -47,3 +79,5 @@ Example: editing a markdown file for a talk
 For more info
 ------
 More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+
+-->
