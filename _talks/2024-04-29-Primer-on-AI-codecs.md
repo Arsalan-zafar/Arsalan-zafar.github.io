@@ -10,7 +10,6 @@ location: "London"
 
 In this video, I provide a primer on AI based compression. 
 
-{% include video id=wLcXh2X8uBc&t=791s&ab_channel=JanOzer" provider="youtube" %}
-
+{% include video id="wLcXh2X8uBc" provider="youtube" %}
 
 
