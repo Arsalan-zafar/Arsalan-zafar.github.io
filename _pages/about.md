@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-I'm the co-founder and CTO of Deep Render, where I lead the team to build the world's first AI video codec. Prior to Deep Render, I studied ML at Imperial College London, and Aeronautical & Spacecraft Engineering at the University of Southampton. My interests lie in Machine Learning, Software Engineering and Mechanical Engineering.   
+I'm the co-founder and CTO of Deep Render, where I led the team to build the world's first AI video codec. Prior to Deep Render, I studied ML at Imperial College London, and Aeronautical & Spacecraft Engineering at the University of Southampton. My interests lie in Machine Learning, Software Engineering and Mechanical Engineering.   
 
 
 
@@ -17,6 +17,7 @@ Deep Render and AI codecs
 
 Deep Render was founded in 2019 by Christian Besenbruch and I. We set out build an entirely new method for compressing video. We spend the next 4 years fundraising, building the team, the hardware infrasturcture and the team. Along this journey, we've managed to achieve the following:
 - Build the world's first AI codec
+- Introduce the world's first AI codec into FFMPEG and VLC
 - Building the world's best AI compression team
 - Building the world's best ML Deployment team for iOS, Intel and Android platforms
 - Building an AI compute specialised data centre with over 200 GPUs
@@ -28,9 +29,7 @@ Deep Render was founded in 2019 by Christian Besenbruch and I. We set out build 
 ML research
 ======
 
-Prior to Deep Render, I worked with the Dyson Robotics lab at Imperial College London on self driving technology such as Deep Visual Odometry and camera calibrations with Neural networks. 
-
-
+Prior to Deep Render, I worked with [Andrew Davison](https://www.doc.ic.ac.uk/~ajd/) and [Ronnie Clark](https://www.ron-clark.com/) from Dyson Robotics lab on self driving technology such as Deep Visual Odometry and Deep Camera Calibration. 
 
 <!--
 
