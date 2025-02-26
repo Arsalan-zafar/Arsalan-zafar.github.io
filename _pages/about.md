@@ -12,7 +12,7 @@ I'm the co-founder and CTO of Deep Render, where I led the team to build the wor
 
 
 
-Deep Render and AI codecs
+Deep Render and AI codecs [2019-now]
 ======
 
 Deep Render was founded in 2019 by Christian Besenbruch and I. We set out build an entirely new method for compressing video. We spend the next 4 years fundraising, building the team and the hardware infrasturcture. Along this journey, we've managed to achieve the following:
