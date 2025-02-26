@@ -12,7 +12,7 @@ I'm the co-founder and CTO of Deep Render, where I led the team to build the wor
 
 
 
-Deep Render and AI codecs [2019-now]
+Deep Render and AI codecs [2019-Now]
 ======
 
 Deep Render was founded in 2019 by Christian Besenbruch and I. We set out build an entirely new method for compressing video. We spend the next 4 years fundraising, building the team and the hardware infrasturcture. Along this journey, we've managed to achieve the following:
@@ -33,10 +33,10 @@ Various start-ups [2018-2019]
 During this period, I was in a hacker house with my co-founder Christin Besnbruch and we iterated on multiple start-up ideas. We initially set out to build hardware for cities to solve the traffic problem using deep learning. We then pivoted to building spectacles for audially impaired people that could provide live subtitles. After this, we built rending software for gaming and movie rending. All these mini-startups were fun and provided valuable experience in building products.  
 
 
-ML research [2016-2018]
+ML research at Imperial College London [2016-2018]
 ======
 
-Prior to Deep Render, I worked with [Andrew Davison](https://www.doc.ic.ac.uk/~ajd/) and [Ronnie Clark](https://www.ron-clark.com/) from Dyson Robotics lab on self driving technology such as Deep Visual Odometry, SLAM (simultaneous localisation and mapping) and Deep Camera Calibration. Additionally, I studied a variety of generative machine learning models such as GANs, VAEs and Diffusion models and dove deep into theoretical topics such as Information Theory and Variational Inference. 
+Prior to Deep Render, I worked with [Andrew Davison](https://www.doc.ic.ac.uk/~ajd/) and [Ronnie Clark](https://www.ron-clark.com/) from Dyson Robotics lab on self driving technology such as Deep Visual Odometry, SLAM (simultaneous localisation and mapping) and Deep Camera Calibration. Additionally, I studied Machine learning at Imperial College london, specialising in variety of generative machine learning models such as GANs, VAEs and Diffusion models while diving deep into theoretical topics such as Information Theory and Variational Inference. 
 
 
 Aeronautical & Spacecraft Engineering [2012-2016]
