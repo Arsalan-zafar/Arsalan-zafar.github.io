@@ -42,7 +42,7 @@ Prior to Deep Render, I worked with [Andrew Davison](https://www.doc.ic.ac.uk/~a
 Aeronautical & Spacecraft Engineering [2012-2016]
 ======
 
-Prior to working on self driving technology and SLAM, I studied Aeronautical & Spacecraft Engineering at the University of Southampton. I've always had a deep passion for space exploration and aerospace engineering (my childhood dream was to be an astronaut and the first person on Mars, maybe this can still be true). During my time at southampton, I studied a variety of topics from Jet propulsion and aerodynamics to control systems and space systems. I also spent time desigining microlight aircraft on CAD systems, performing CDF, building and competings in robotics championships such as Eurobot. 
+Prior to working on self driving technology and SLAM, I studied Aeronautical & Spacecraft Engineering at the University of Southampton. I've always had a deep passion for space exploration and aerospace engineering (my childhood dream was to be an astronaut and the first person on Mars, maybe this can still be true). During my time at southampton, I studied a variety of topics from Jet propulsion and aerodynamics to control systems and space systems. I also spent time desigining microlight aircraft on CAD systems, performing computational fluid dynamics simulations, building and competings in robotics championships such as Eurobot. 
 
 
 <!--
