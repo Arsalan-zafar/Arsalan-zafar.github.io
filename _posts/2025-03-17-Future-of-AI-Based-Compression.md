@@ -1,7 +1,7 @@
 ---
 title: 'Future of AI based compression'
-date: 2024-04-08
-permalink: /posts/2024/04/future-of-ai-based-compression/
+date: 2025-03-17
+permalink: /posts/2025/03/future-of-ai-based-compression/
 tags:
   - AI based compression
   - AI codecs
