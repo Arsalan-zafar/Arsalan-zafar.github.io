@@ -43,6 +43,6 @@ Deep Render follows the standard device porting logic. We produce JIT-traced mod
 
 To support our engineering effort, we have an infrastructure team dedicated to maintaining code, testing, and hardware needs. Their primary aim is to create a pipeline that allows us to go from research code to results efficiently. They turn code into coding gains. Alongside optimising the software and testing infrastructure, they maintain our on-premise training systems, with over 150 compute nodes custom-built to solve compression.      
 
-# Looking forward
+# Looking forward          
 
 Our fundamental belief is that AI is the tool that will allow humanity to reach the compression limit. Deep Render is spearheading this goal and is perfectly placed to make the most progress towards it. Our models have surpassed 45 years of incumbent research in two years, and we have internal research showing that we’ve barely scratched the surface. Who’s to say what the next two will bring?
