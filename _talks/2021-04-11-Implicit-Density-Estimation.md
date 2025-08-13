@@ -1,5 +1,5 @@
 ---
-title: Implicity Densty Estimation
+title: Implicit Density Estimation
 collection: talks
 type: "Talk"
 permalink: /talks/Implicit_Density_Estimation
