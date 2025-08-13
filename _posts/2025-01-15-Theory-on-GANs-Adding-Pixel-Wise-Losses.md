@@ -9,11 +9,11 @@ tags:
   - Deep Learning
   - Pixel-wise losses
   - Generative Compression Networks
-published: True 
+published: False 
 mathjax: true
 ---
 
-*Originally by Vira Koshkina, July 21, 2021*
+
 
 Generative Adversarial Networks are notoriously unstable and hard to train. Researchers have to employ a variety of tricks to make the adversarial training converge, constantly battling issues such as mode collapse and training divergence. Fortunately for us, when it comes to Generative Compression Networks (GCN), the adversarial training seems to be on its best behaviour, causing much less trouble.
 
