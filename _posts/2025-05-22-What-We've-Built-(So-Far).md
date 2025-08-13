@@ -1,5 +1,5 @@
 ---
-title: 'What We\'ve Built (So Far)'
+title: 'What We have Built at Deep Render (So Far)'
 date: 2025-05-22
 permalink: /posts/2025/05/what-we-have-built-so-far/
 tags:
