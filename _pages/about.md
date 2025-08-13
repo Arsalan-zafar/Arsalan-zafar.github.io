@@ -11,38 +11,28 @@ redirect_from:
 I'm the co-founder and CTO of Deep Render, where I led the team to build the world's first AI video codec. Prior to Deep Render, I studied ML at Imperial College London, and Aeronautical & Spacecraft Engineering at the University of Southampton. My interests lie in Machine Learning, Software Engineering and Aerospace Engineering.   
 
 
-
 Deep Render and AI codecs [2019-Now]
 ======
 
-Deep Render was founded in 2019 by Christian Besenbruch and I. We set out build an entirely new method for compressing video. We spend the next 4 years fundraising, building the team and the hardware infrasturcture. Along this journey, we've managed to achieve the following:
-- Build the world's first AI codec
-- Introduce the world's first AI codec into FFMPEG and VLC
-- Building the world's best AI compression team
-- Building the world's best ML Deployment team for iOS, Intel and Android platforms
-- Building an AI compute specialised data centre with over 200 GPUs
-- Raising $15m in funding from top-tier investors 
-- Form commercial relationships with hyperscalers 
-- File 120+ patents
-
+I co-founded Deep Render in 2019 to reinvent video compression with AI. Over four years we shipped an end-to-end AI codec, integrated it into FFmpeg and VLC, built a world-class research and ML-deployment team across iOS, Android and Intel, and stood up a 200+-GPU AI compute data center. We raised $15M from top-tier investors, secured and executed proofs-of-concept with hyperscalers, and filed 135+ patents—establishing one of the most substantive IP portfolios in AI-based compression.
 
 
 Various start-ups [2018-2019]
 ======
 
-During this period, I was in a hacker house with my co-founder Christin Besnbruch and we iterated on multiple start-up ideas. We initially set out to build hardware for cities to solve the traffic problem using deep learning. We then pivoted to building spectacles for audially impaired people that could provide live subtitles. After this, we built rending software for gaming and movie rending. All these mini-startups were fun and provided valuable experience in building products.  
+During this period I worked out of a hacker house, moving quickly from concept to prototype across three domains: machine learning and computer vision to tackle city traffic, smart-glasses that provided live subtitles for people who are deaf or hard of hearing using machine learning, and deep learning based rendering software for games and film. Each sprint strengthened my zero-to-one product skills—rapid prototyping, user research, and clear pivot decisions—and gave me a durable toolkit for building products under pressure.
 
 
 ML research at Imperial College London [2016-2018]
 ======
 
-Prior to Deep Render, I worked with [Andrew Davison](https://www.doc.ic.ac.uk/~ajd/) and [Ronnie Clark](https://www.ron-clark.com/) from Dyson Robotics lab on self driving technology such as Deep Visual Odometry, SLAM (simultaneous localisation and mapping) and Deep Camera Calibration. Additionally, I studied Machine learning at Imperial College london, specialising in variety of generative machine learning models such as GANs, VAEs and Diffusion models while diving deep into theoretical topics such as Information Theory and Variational Inference. 
+Prior to Deep Render, I worked with [Andrew Davison](https://www.doc.ic.ac.uk/~ajd/) and [Ronnie Clark](https://www.ron-clark.com/) from Dyson Robotics lab on self-driving technology such as Deep Visual Odometry, SLAM (simultaneous localisation and mapping) and Deep Camera Calibration. Additionally, I studied Machine learning at Imperial College London, specialising in a variety of generative machine learning models such as GANs, VAEs and Diffusion models while diving deep into theoretical topics such as Information Theory and Variational Inference. 
 
 
 Aeronautical & Spacecraft Engineering [2012-2016]
 ======
 
-Prior to working on self driving technology and SLAM, I studied Aeronautical & Spacecraft Engineering at the University of Southampton. I've always had a deep passion for space exploration and aerospace engineering (my childhood dream was to be an astronaut and the first person on Mars, maybe this can still be true). During my time at southampton, I studied a variety of topics from Jet propulsion and aerodynamics to control systems and space systems. I also spent time desigining microlight aircraft on CAD systems, performing computational fluid dynamics simulations, building and competings in robotics championships such as Eurobot. 
+Prior to working on self-driving technology and SLAM, I studied Aeronautical & Spacecraft Engineering at the University of Southampton. I’ve always had a deep passion for space exploration and aerospace engineering (my childhood dream was to be an astronaut and the first person on Mars—maybe this can still be true). During my time at Southampton, I studied a variety of topics from jet propulsion and aerodynamics to control systems and space systems. I also spent time designing microlight aircraft on CAD systems, performing computational fluid dynamics simulations, and building and competing in robotics championships such as Eurobot.
 
 
 <!--
