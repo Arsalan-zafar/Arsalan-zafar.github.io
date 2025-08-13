@@ -15,5 +15,5 @@ In this video, Arsalan has an interview style conversation with Jona Ballé and 
 Jona Ballé, Chris Finlay, and Arsalan Zafar discuss the history and future of AI-based compression. They talk about how they got into compression, their early research, the current challenges, and what they are working on now. They also share stories from their early days in the field and reflect on what it takes to invent an entirely new discipline.
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RsvFU15" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RsvFU15-Lzc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
