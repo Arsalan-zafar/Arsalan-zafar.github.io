@@ -14,7 +14,7 @@ I’m the co-founder and CTO of Deep Render, where I led a team to build the wor
 Deep Render and AI codecs [2019-Now]
 ======
 
-I co-founded Deep Render in 2019 to reinvent video compression with AI. Over four years we shipped an end-to-end AI codec, integrated it into FFmpeg and VLC, built a world-class research and ML-deployment team across iOS, Android and Intel, and stood up a 200+-GPU AI compute data center. We raised $15M from top-tier investors, secured and executed proofs-of-concept with hyperscalers, and filed 135+ patents—establishing one of the most substantive IP portfolios in AI-based compression.
+I co-founded Deep Render in 2019 to reinvent video compression with AI. Over the last five years, we shipped an end-to-end AI codec, integrated it into FFmpeg and VLC, built a world-class ML research and ML eng team, and stood up a 200+-GPU AI compute data centre. We raised $15M from top-tier investors, secured and executed proofs-of-concept with hyperscalers, and filed 135+ patents, establishing one of the most substantive IP portfolios in AI-based compression.
 
 
 Various start-ups [2018-2019]
