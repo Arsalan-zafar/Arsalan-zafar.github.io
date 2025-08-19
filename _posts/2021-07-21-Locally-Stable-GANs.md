@@ -1,5 +1,5 @@
 ---
-title: 'Locally stable GANs'
+title: 'Proof: MSE makes GANs locally stable'
 date: 2021-07-21
 permalink: /posts/2021/07/locally-stable-gans/
 tags:
@@ -14,11 +14,31 @@ mathjax: true
 ---
 
 
-Generative Adversarial Networks are notoriously unstable due to issues such as mode collapse and training divergence. However, in AI compression, the adversarial training is generally stable and reliable without the neccessary tricks such as gradient penalty and adding noise to our input samples. So how do GANs in a compression pipeline differ from standard GANs? 
+Generative Adversarial Networks are notoriously unstable due to issues such as mode collapse and training divergence. However, in AI compression, the adversarial training is generally stable and reliable without the neccessary tricks such as gradient penalty and adding noise to our input samples. I found this intriguing so I set out to explore why.    
 
 One obvious difference is that in compression GANs, we always have access to the ground truth image that we aim to generate. That allows us to use pixel-wise distortion losses in generator (encoder-decoder) training. 
 
-Let's look at a toy example to examine the conditions of convergence of GANs and discuss how the AI commpression objective impacts convergence. We'll use the Dirac-GAN for simplicity with the non-saturating and vanillar loss for our analysis. 
+## Convergence of GANs
+
+Our starting point is the (Mescheder et al., 2017)[https://arxiv.org/abs/1705.10461] Numerics of GANs paper. We can think of GAN training as a two-player non-cooperative game. The first player is a generator $$G_\theta(z)$$ with parameters $$\theta$$ that wants to maximize its payoff $$g(\theta, \psi)$$, the second player is a discriminator $$D_\psi(x)$$, with parameters $$\psi$$ that aims to maximize $$d(\theta, \psi)$$. The game is at a Nash equilibrium at $$(\theta^*, \psi^*)$$ when neither player can improve its payoff by changing its parameters slightly. When GAN reaches a Nash equilibrium, we can say that it reached local convergence.
+
+One method to train a GAN is to use a Simultaneous Gradient Descent, which can be thought of as a fixed point algorithm that applies an operator $$F(\theta, \psi)$$ to the parameters of the generator and discriminator $$(\theta, \psi)$$ respectively:
+
+$$F(\theta, \psi) = (\theta, \psi) + hv(\theta, \psi),$$
+
+where $$h$$ is a learning rate and $$v(\theta, \psi)$$ is the Jacobian of $$L$$, our gradient:
+
+$$v(\theta, \psi) = \begin{bmatrix} -\nabla_\theta L(\theta, \psi) \\ \nabla_\psi L(\theta, \psi) \end{bmatrix}$$
+
+Mescheder et al. demonstrate that the convergence near an equilibrium point $$(\theta^*, \psi^*)$$ can be assessed by looking at the spectrum of Jacobian of our update operator $$F_h'(\theta, \psi)$$ at the point $$(\theta^*, \psi^*)$$:
+
+• If all eigenvalues have absolute value **less than 1**, the system **converges to** $$(\theta^*, \psi^*)$$ with a linear rate (our desired case).
+
+• If there are any eigenvalues with absolute values **greater than 1**, the system **diverges**.
+
+• If all eigenvalues have an absolute value **equal to 1** (lie on the unit circle), it can be convergent, divergent or neither, but if it is convergent, it will generally converge with a sublinear rate.
+
+Now let's look at a toy example to examine the conditions of convergence of GANs and discuss how the AI commpression objective impacts convergence. We'll use the Dirac-GAN for simplicity with the non-saturating and vanillar loss for our analysis. 
 
 ## Dirac-GAN
 
@@ -92,7 +112,9 @@ And, just like in the case of non-saturating loss, eigenvalues of the Jacobian o
 
 This analysis shows that adding MSE has the same impact as gradient regularisation and instance noise, which also remove the circular behaviours in the gradient field and force the negative real part in the eigenvalues. This analysis explains how GANs in compresison can sidestep the need for these regaularization methods buy simple using the MSE. 
 
-## References and further reading:
+
+
+## Further reading:
 
 [1] Mescheder, Lars, Andreas Geiger, and Sebastian Nowozin. "Which training methods for GANs do actually converge?."
 International conference on machine learning. PMLR, 2018. https://arxiv.org/pdf/1801.04406.pdf
