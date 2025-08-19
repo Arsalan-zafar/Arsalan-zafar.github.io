@@ -1,7 +1,7 @@
 ---
 title: 'Locally stable GANs'
 date: 2021-07-21
-permalink: /posts/2025/01/theory-on-gans-pixel-wise-losses/
+permalink: /posts/2021/07/locally-stable-gans/
 tags:
   - GANs
   - Generative Adversarial Networks
