@@ -1,7 +1,7 @@
 ---
 title: 'ViT Transformation Notation'
-date: 2025-01-15
-permalink: /posts/2025/01/vit-transformation-notation/
+date: 2022-01-15
+permalink: /posts/2022/01/vit-transformation-notation/
 tags:
   - Vision Transformer
   - ViT
@@ -250,39 +250,47 @@ These $$\mathbf{Z}$$ are **text logits**; training uses cross-entropy on the tex
 
 ## One-page summary (shapes inline)
 
-**Image patchify & embed**
-$$\mathbf{X}_{\text{patch}}=\mathcal{U}(\mathbf{X}_{\text{img}})\ \in\ [B,N,CP^2],\quad \mathbf{I}=\mathbf{X}_{\text{patch}}W_{\text{patch}}+b_{\text{patch}}\ \in\ [B,N,D],\quad \mathbf{I}^{(0)}=\mathbf{I}+P_{\text{img}}\ \in\ [B,N,D]$$
+• **Image patches:** $$\mathbf{X}_{\text{patch}}=\mathcal{U}(\mathbf{X}_{\text{img}}) \in [B,N,CP^2]$$
 
-**Text tokenize**
-$$\mathbf{X}_{\text{txt}}^{(0)}=E[\mathbf{t}]+P_{\text{txt}}\ \in\ [B,T,D]$$
+• **Patch embed:** $$\mathbf{I}=\mathbf{X}_{\text{patch}}W_{\text{patch}}+b_{\text{patch}} \in [B,N,D]$$
 
-**Concatenate**
-$$\mathbf{X}^{(0)}=\operatorname{concat}(\mathbf{I}^{(0)},\mathbf{X}_{\text{txt}}^{(0)})\ \in\ [B,S,D],\ S=N+T$$
+• **Image pos:** $$\mathbf{I}^{(0)}=\mathbf{I}+P_{\text{img}} \in [B,N,D]$$
 
-**Block (single head)**
-$$\tilde{\mathbf{X}}=\mathrm{LN}(\mathbf{X}^{(\ell-1)})\ \in\ [B,S,D],\quad \mathbf{Q},\mathbf{K},\mathbf{V}=\tilde{\mathbf{X}}W_Q,\,\tilde{\mathbf{X}}W_K,\,\tilde{\mathbf{X}}W_V\ \in\ [B,S,D]$$
+• **Text embed:** $$\mathbf{X}_{\text{txt}}^{(0)}=E[\mathbf{t}]+P_{\text{txt}} \in [B,T,D]$$
 
-$$\mathbf{S}=\mathbf{Q}\mathbf{K}^\top/\sqrt{D}+\mathbf{M}\ \in\ [B,S,S],\quad \mathbf{A}=\mathrm{softmax}(\mathbf{S})\ \in\ [B,S,S],\quad \mathbf{H}=\mathbf{A}\mathbf{V}\ \in\ [B,S,D]$$
+• **Concatenate:** $$\mathbf{X}^{(0)}=\operatorname{concat}(\mathbf{I}^{(0)},\mathbf{X}_{\text{txt}}^{(0)}) \in [B,S,D]$$ where $$S=N+T$$
 
-$$\mathbf{O}=\mathbf{H}W_O\ \in\ [B,S,D],\quad \mathbf{X}'=\mathbf{X}^{(\ell-1)}+\mathbf{O}\ \in\ [B,S,D]$$
+• **Pre-norm:** $$\tilde{\mathbf{X}}=\mathrm{LN}(\mathbf{X}^{(\ell-1)}) \in [B,S,D]$$
 
-$$\hat{\mathbf{X}}=\mathrm{LN}(\mathbf{X}')\ \in\ [B,S,D],\quad \mathbf{G}=\mathrm{GELU}(\hat{\mathbf{X}}W_1+b_1)\ \in\ [B,S,d_{\text{ff}}],\quad \mathbf{M}=\mathbf{G}W_2+b_2\ \in\ [B,S,D]$$
+• **Q/K/V:** $$\mathbf{Q},\mathbf{K},\mathbf{V}=\tilde{\mathbf{X}}W_Q,\,\tilde{\mathbf{X}}W_K,\,\tilde{\mathbf{X}}W_V \in [B,S,D]$$
 
-$$\mathbf{X}^{(\ell)}=\mathbf{X}'+\mathbf{M}\ \in\ [B,S,D]$$
+• **Scores:** $$\mathbf{S}=\mathbf{Q}\mathbf{K}^\top/\sqrt{D}+\mathbf{M} \in [B,S,S]$$
 
-**Head (text only)**
-$$\mathbf{X}_f=\mathrm{LN}_f(\mathbf{X}^{(L)})\ \in\ [B,S,D],\quad \mathbf{X}_{f,\text{txt}}=\mathbf{X}_f[:,N:\!,:]\ \in\ [B,T,D]$$
+• **Attention:** $$\mathbf{A}=\mathrm{softmax}(\mathbf{S}) \in [B,S,S]$$
 
-$$\mathbf{Z}=\mathbf{X}_{f,\text{txt}}E^\top\ \text{ (tied) }\quad \text{or}\quad \mathbf{Z}=\mathbf{X}_{f,\text{txt}}W_{\text{vocab}} \ \text{ (untied) }\ \in\ [B,T,V]$$
+• **Values:** $$\mathbf{H}=\mathbf{A}\mathbf{V} \in [B,S,D]$$
+
+• **Output proj:** $$\mathbf{O}=\mathbf{H}W_O \in [B,S,D]$$
+
+• **Add & norm:** $$\mathbf{X}'=\mathbf{X}^{(\ell-1)}+\mathbf{O} \in [B,S,D]$$
+
+• **Pre-norm MLP:** $$\hat{\mathbf{X}}=\mathrm{LN}(\mathbf{X}') \in [B,S,D]$$
+
+• **MLP up:** $$\mathbf{U}=\hat{\mathbf{X}}W_1+b_1 \in [B,S,d_{\text{ff}}]$$
+
+• **GELU:** $$\mathbf{G}=\mathrm{GELU}(\mathbf{U}) \in [B,S,d_{\text{ff}}]$$
+
+• **MLP down:** $$\mathbf{M}=\mathbf{G}W_2+b_2 \in [B,S,D]$$
+
+• **Add:** $$\mathbf{X}^{(\ell)}=\mathbf{X}'+\mathbf{M} \in [B,S,D]$$
+
+• **Final norm:** $$\mathbf{X}_f=\mathrm{LN}_f(\mathbf{X}^{(L)}) \in [B,S,D]$$
+
+• **Text only:** $$\mathbf{X}_{f,\text{txt}}=\mathbf{X}_f[:,N:,:] \in [B,T,D]$$
+
+• **Logits:** $$\mathbf{Z}=\mathbf{X}_{f,\text{txt}}E^\top \in [B,T,V]$$ (tied) or $$\mathbf{Z}=\mathbf{X}_{f,\text{txt}}W_{\text{vocab}} \in [B,T,V]$$ (untied)
 
 ---
-
-## Notes / variants
-
-- **Bidirectional vision:** To allow all image patches to see each other, set the top-left $$N\times N$$ block of $$\mathbf{M}$$ to zeros (no causal masking there), keep causal masking for the bottom-right $$T\times T$$ text block, and disallow image$$\to$$text attention by setting the top-right block to $$-\infty$$. Text$$\to$$image (bottom-left) remains allowed.
-- **Special tokens:** You may prepend a learned $$[\text{IMG}]$$ or delimiter tokens; include them in the concatenation and in positional indices.
-- **Rotary/relative pos:** Replace $$P_{\text{img}},P_{\text{txt}}$$ with RoPE/relative encodings; shapes remain unchanged.
-- **Dim mismatch:** If text or vision embeddings are not $$D$$-dimensional, insert a linear projection to $$D$$ before concatenation.
 
 ## Summary
 
