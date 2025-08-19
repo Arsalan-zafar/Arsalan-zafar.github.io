@@ -1,5 +1,5 @@
 ---
-title: 'ViT Transformation Notation'
+title: 'Transformer and ViT dataflow notation'
 date: 2022-01-15
 permalink: /posts/2022/01/vit-transformation-notation/
 tags:
@@ -15,7 +15,7 @@ published: True
 mathjax: true
 ---
 
-This is a comprehensive notation primer on transformers and Vision Transformers (ViTs). We'll start with the mathematical foundations of nanoGPT to establish core transformer concepts, then extend to ViT architectures that process both image and text data.
+This is a comprehensive notation primer on transformers and Vision Transformers (ViTs). We'll start with the mathematical foundations of nanoGPT for simplicity to establish core transformer concepts, then extend to ViT architectures that process both image and text data.
 
 ---
 
