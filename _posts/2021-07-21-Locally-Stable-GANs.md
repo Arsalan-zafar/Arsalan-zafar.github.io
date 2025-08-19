@@ -9,7 +9,7 @@ tags:
   - Deep Learning
   - Pixel-wise losses
   - Generative Compression Networks
-published: False 
+published: True 
 mathjax: true
 ---
 
