@@ -92,6 +92,16 @@ And, just like in the case of non-saturating loss, eigenvalues of the Jacobian o
 
 This analysis shows that adding MSE has the same impact as gradient regularisation and instance noise, which also remove the circular behaviours in the gradient field and force the negative real part in the eigenvalues. This analysis explains how GANs in compresison can sidestep the need for these regaularization methods buy simple using the MSE. 
 
+## References and further reading:
+
+[1] Mescheder, Lars, Andreas Geiger, and Sebastian Nowozin. "Which training methods for GANs do actually converge?."
+International conference on machine learning. PMLR, 2018. https://arxiv.org/pdf/1801.04406.pdf
+[2] Mescheder, Lars, Sebastian Nowozin, and Andreas Geiger. "The numerics of gans."
+arXiv preprint arXiv:1705.10461 (2017). https://arxiv.org/pdf/1705.10461.pdf
+[3] Huszár Ferenc "GANs are Broken in More than One Way: The Numerics of GANs."
+GANs are Broken in More than One Way: The Numerics of GANs. https://www.inference.vc/my-notes-on-the-numerics-of-gans/
+[4] Bertsekas, Dimitri P. "Nonlinear programming." (1999). https://nms.kcl.ac.uk/osvaldo.simeone/bert.pdf
+[5] Theisel, Holger, and Tino Weinkauf. "Vector field metrics based on distance measures of first order critical points." (2002). http://wscg.zcu.cz/wscg2002/Papers_2002/D49.pdf
 
 
 
