@@ -90,7 +90,11 @@ $$p_\theta(x_{t-1} | x_t) = N(x_{t-1}; \mu_\theta(x_t, t), \Sigma_\theta(x_t, t)
 
 Like variational inference, we define an approximate distribution for our forward process $$q(x_{t-1} | x_t)$$, and close the gap between the two using KL-divergence. $$q(x_{t-1} | x_t)$$ is generally intractable; however, it can be shown to be tractable when conditioned on $$x_0$$. This results in the following formulation of what we call the forward process posterior:
 
-$$q(x_{t-1} | x_t, x_0) = \mathcal{N}\left(\frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}x_0 + \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t, \tilde{\beta}_t I\right)$$
+$$q(x_{t-1} | x_t, x_0) = \mathcal{N}\left( \mu_{\text{post}}, \tilde{\beta}_t I \right)$$
+
+where the posterior mean is:
+
+$$\mu_{\text{post}} = \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}x_0 + \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t$$
 
 $$\tilde{\beta}_t = \frac{\beta_t(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}$$
 
@@ -176,3 +180,4 @@ The encoding works exactly the same, but the decoding differs. After the $$\hat{
 
 There are some upcoming sprints exploring the viability of diffusion models in compression and some initial POC runs show interesting results!
 
+![Figure 9: Simple architecuture of a diffusion decoder based comprression pipeline. Here, the noise profile is denoted with $$eta$$, not $z$.](/images/diffusion_figure_9.png)
