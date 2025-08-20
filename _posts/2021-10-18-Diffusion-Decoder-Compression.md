@@ -1,7 +1,7 @@
 ---
 title: 'Diffusion Decoder based Compression'
-date: 2024-04-08
-permalink: /posts/2024/04/Diffusion Decoder Based Compression/
+date: 2021-10-18
+permalink: /posts/2021/10/Diffusion Decoder Based Compression/
 tags:
   - AI based compression
   - AI codecs
@@ -9,6 +9,8 @@ tags:
 published: True 
 mathjax: true
 ---
+
+I'm always super interested in expanding the fronteir of compression. The current method we use are derived from VAEs but here I explore how diffusion models could be used for compression. 
 
 # Intro to Diffusion Models
 
@@ -88,7 +90,9 @@ The true reverse process of our posterior is written as:
 
 $$p_\theta(x_{t-1} | x_t) = N(x_{t-1}; \mu_\theta(x_t, t), \Sigma_\theta(x_t, t)I).$$
 
-Like variational inference, we define an approximate distribution for our forward process $$q(x_{t-1} | x_t)$$, and close the gap between the two using KL-divergence. $$q(x_{t-1} | x_t)$$ is generally intractable; however, it can be shown to be tractable when conditioned on $$x_0$$. This results in the following formulation of what we call the forward process posterior:
+Like variational inference, we define an approximate distribution for our forward process $$q(x_{t-1} | x_t)$$, and close the gap between the two using KL-divergence. 
+
+$$q(x_{t-1} | x_t)$$ is generally intractable; however, it can be shown to be tractable when conditioned on $$x_0$$. This results in the following formulation of what we call the forward process posterior:
 
 $$q(x_{t-1} | x_t, x_0) = \mathcal{N}\left( \mu_{\text{post}}, \tilde{\beta}_t I \right)$$
 
@@ -98,9 +102,7 @@ $$\mu_{\text{post}} = \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}x
 
 $$\tilde{\beta}_t = \frac{\beta_t(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}$$
 
-This can be derived with (2.116) in [Bishop's book](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf). Therefore, if we can predict our mean $$\tilde{\mu}$$:
-
-$$\tilde{\mu} = \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}x_0 + \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t$$
+This can be derived with (2.116) in [Bishop's book](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf). Therefore, if we can predict our posterior mean $$\mu_{\text{post}}$$
 
 and our variance (which we can easily be computed as all terms are always known), we should be able to sample from our reverse posterior $$q(x_{t-1} | x_t, x_0)$$.
 
