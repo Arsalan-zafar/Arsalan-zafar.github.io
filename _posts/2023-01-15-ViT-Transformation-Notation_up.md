@@ -12,16 +12,18 @@ tags:
   - Mathematical Notation
   - nanoGPT
 published: True 
-mathjax: true
+mathjax: true    
 ---
 
-This is a comprehensive notation primer on transformers and Vision Transformers (ViTs). We'll start with the mathematical foundations of nanoGPT for simplicity to establish core transformer concepts, then extend to ViT architectures that process both image and text data.
+
+
+When reviewingt the transformer literature and ViT literature, to get an intuitive understanding of the various model layers and how the manipulate the input token, I found it helpful to map out the data flow though the model in matrix notation. I couldn't find this anywhere so I thought I'd share it. 
 
 ---
 
 # Part I: NanoGPT Foundation
 
-This section covers the mathematical notation for nanoGPT, providing the foundational understanding of transformer architectures.
+This section covers the matrix notation for nanoGPT.
 
 ## Notation / sizes (nanoGPT)
 
@@ -135,7 +137,7 @@ These logits $$Z$$ give the next-token distribution via softmax over the vocab d
 
 # Part II: ViT → Text (Single-Stream)
 
-Building on the nanoGPT foundation, we now extend to Vision Transformers that process both image and text data in a unified architecture.
+Building on the nanoGPT foundation, we can now extend to Vision Transformers that process both image and text data in a unified architecture. The primary difference is that we'd now like to take our image, patchify it and map that patches into token so we can have the text and image data in the same format and domain. 
 
 ## Notation / sizes (ViT Extension)
 
@@ -273,11 +275,3 @@ These $$Z$$ are **text logits**; training uses cross-entropy on the text tokens 
 
 ---
 
-## Summary
-
-This comprehensive notation primer provides:
-
-1. **NanoGPT Foundation**: Core transformer concepts including self-attention, causal masking, pre-LayerNorm architecture, and autoregressive text generation
-2. **ViT Extension**: Vision-text multimodal architectures that combine image patch processing with text generation in a unified transformer framework
-
-Together, these mathematical frameworks enable understanding and implementing modern transformer architectures from simple language models to complex multimodal systems, maintaining precise tensor dimensions and operations throughout both pipelines. 

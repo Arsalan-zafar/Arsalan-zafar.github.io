@@ -10,7 +10,9 @@ published: True
 mathjax: true
 ---
 
-I'm always super interested in expanding the fronteir of compression. The current method we use are derived from VAEs but here I explore how diffusion models could be used for compression. 
+I'm always super interested in expanding the fronteir of learned compression. The current methods we use are derived from VAEs (equivalence shown here) and use GANs to improve preceptual quality but in this blog I explore how diffusion models could be used for compression. 
+
+The feasibility of any method we explore in a learned compression pipeline hinges on the complexity of that method. Since decode and sometime encode are performed on battery constrained edge devices, the scope of a new method to add compute is very limited, often 1-2KMACs/px. As a result training time improvements are favoured over encode/decode. In this blog though, we'll go against this advice and augument our deocoder with a denoising diffusion encoder. 
 
 # Intro to Diffusion Models
 
@@ -84,15 +86,16 @@ Here, $$z$$ is a sample from a standard normal. The figure below demonstrates ho
 
 ![Figure 6: Sampling at an arbitrary step T](/images/diffusion_figure_6.png)
 
+
 ## The reverse process
 
 The true reverse process of our posterior is written as:
 
 $$p_\theta(x_{t-1} | x_t) = N(x_{t-1}; \mu_\theta(x_t, t), \Sigma_\theta(x_t, t)I).$$
 
-Like variational inference, we define an approximate distribution for our forward process $$q(x_{t-1} | x_t)$$, and close the gap between the two using KL-divergence. 
+Like variational inference, we define an approximate distribution for our forward process $$q(x_{t-1} \| x_t)$$, and close the gap between the two using KL-divergence. 
 
-$$q(x_{t-1} | x_t)$$ is generally intractable; however, it can be shown to be tractable when conditioned on $$x_0$$. This results in the following formulation of what we call the forward process posterior:
+$$q(x_{t-1} \mid x_t)$$ is generally intractable; however, it can be shown to be tractable when conditioned on $$x_0$$. This results in the following formulation of what we call the forward process posterior:
 
 $$q(x_{t-1} | x_t, x_0) = \mathcal{N}\left( \mu_{\text{post}}, \tilde{\beta}_t I \right)$$
 
@@ -103,7 +106,6 @@ $$\mu_{\text{post}} = \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1-\bar{\alpha}_t}x
 $$\tilde{\beta}_t = \frac{\beta_t(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}$$
 
 This can be derived with (2.116) in [Bishop's book](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf). Therefore, if we can predict our posterior mean $$\mu_{\text{post}}$$
-
 and our variance (which we can easily be computed as all terms are always known), we should be able to sample from our reverse posterior $$q(x_{t-1} | x_t, x_0)$$.
 
 If we have a look at this mean, during the reverse/sampling process, we know $$\bar{\alpha}$$ and $$\beta$$ as these are self-defined. $$x_t$$ is the current step we are on, which we know too (since we start with a sample form $$N(0, I)$$). The only term we do not know at sampling time is $$x_0$$. This is what we need a neural network to help us predict. We can train a network $$f_\theta(x_t, t)$$ to directly predict this, given $$x_t$$ and $$t$$ as inputs, however, this is empirically shown not to work too well, and a better method is to do the following:
