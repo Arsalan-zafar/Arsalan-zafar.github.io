@@ -93,7 +93,7 @@ The true reverse process of our posterior is written as:
 
 $$p_\theta(x_{t-1} | x_t) = N(x_{t-1}; \mu_\theta(x_t, t), \Sigma_\theta(x_t, t)I).$$
 
-Like variational inference, we define an approximate distribution for our forward process $$q(x_{t-1} \| x_t)$$, and close the gap between the two using KL-divergence. 
+Like variational inference, we define an approximate distribution for our forward process $$q(x_{t-1} \mid x_t)$$, and close the gap between the two using KL-divergence. 
 
 $$q(x_{t-1} \mid x_t)$$ is generally intractable; however, it can be shown to be tractable when conditioned on $$x_0$$. This results in the following formulation of what we call the forward process posterior:
 
@@ -140,7 +140,7 @@ The loss function is a maximisation problem of the variational lower bound on th
 
 $$\mathbb{E}_q(x_0)[\log p_\theta(x_0)] \geq -\mathbb{E}_q(x_0)[\log q(x_{1:T} | x_0) - \log p_\theta(x_{0:T})] = -\mathcal{L}$$
 
-This can be reduced to a sum of KL-divergences between $$q(x_{t-1} | x_t, x_0)$$ and $$p_\theta(x_{t-1} | x_t)$$. Since both are Gaussian, this is just a KL between two Gaussians. Working through this, we can end up with a simplified loss term (we need to drop some scaling constants that arise when we do the KL between the Gaussians), corresponding to a weighted variational lower bound:
+This can be reduced to a sum of KL-divergences between $$q(x_{t-1} \mid x_t, x_0)$$ and $$p_\theta(x_{t-1} \mid x_t)$$. Since both are Gaussian, this is just a KL between two Gaussians. Working through this, we can end up with a simplified loss term (we need to drop some scaling constants that arise when we do the KL between the Gaussians), corresponding to a weighted variational lower bound:
 
 $$\mathcal{L}_{\text{simple}} = \mathbb{E}_{x_0, \varepsilon}\left(\|\varepsilon - \varepsilon_\theta(x_t, t)\|_2^2\right)$$
 
