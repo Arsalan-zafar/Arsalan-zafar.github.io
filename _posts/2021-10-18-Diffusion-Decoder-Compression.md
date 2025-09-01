@@ -30,7 +30,7 @@ $$q(x_{1:T} | x_0) = \prod_{t=1}^T q(x_t | x_{t-1})$$
 
 Here, $$\beta_t$$ is our variance at time step $$t$$. As well as adding noise, we also scale down the previous sample by $$\sqrt{1-\beta_t}$$ which is required if we are to bound the variance of $$x_t$$ in the limited of a standard normal. This will be graphically shown later.
 
-Now, let's see what this means in practice. Let's take an image from the Kodak dataset, and define a variance schedule over $$T = 1000$$ steps, starting at $$\beta = 10^{-4}$$ and ending at $$\beta = 0.02$$. Figures 2 and 3 below show how the image and the distribution of the image transition from the image domain to a standard normal.
+Now, let's see what this means in practice. Let's take an image from the Kodak dataset, and define a variance schedule over $$T = 1000$$ steps, starting at $$\beta = 10^{-4}$$ and ending at $$\beta = 0.02$$. Figures 2 and 3 below show a greay scale image and it's grey value pixel distribution.
 
 ![Figure 2: Histogram of normalised pixel values in forward noising process up to T=300](/images/diffusion_figure_2.png)
 
@@ -160,7 +160,7 @@ This is the simplified objective we can use to train our denoising function $$\v
 
 Is there a way we could use diffusion models in our compression pipeline? Can they be used for explicit likelihood or implicit distribution matching?
 
-An immediate idea (much like the super-resolution based method explained earlier) would be to replace our decoder with a conditional diffusion model where we condition the diffusion process on the quantised latent space. This would enable conditional image generation allowing rate and distortion training as usual.
+An immediate idea would be to replace our decoder with a conditional diffusion model where we condition the diffusion process on the quantised latent space. This would enable conditional image generation allowing rate and distortion training as usual.
 
 There are a few changes that we would need to consider for the pipeline. Let's break them down into architecture, training and inference.
 
