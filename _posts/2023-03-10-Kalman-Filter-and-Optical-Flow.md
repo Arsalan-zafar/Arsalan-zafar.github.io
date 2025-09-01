@@ -1,6 +1,6 @@
 ---
 title: 'Kalman filter and optical flow'
-date: 2023-03-10
+date: 2021-05-14
 permalink: /posts/2023/03/kalman-filter-and-optical-flow/
 tags:
   - AI based compression

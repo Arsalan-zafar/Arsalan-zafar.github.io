@@ -20,7 +20,7 @@ One obvious difference is that in compression GANs, we always have access to the
 
 ## Convergence of GANs
 
-Our starting point is the (Mescheder et al., 2017)[https://arxiv.org/abs/1705.10461] Numerics of GANs paper. We can think of GAN training as a two-player non-cooperative game. The first player is a generator $$G_\theta(z)$$ with parameters $$\theta$$ that wants to maximize its payoff $$g(\theta, \psi)$$, the second player is a discriminator $$D_\psi(x)$$, with parameters $$\psi$$ that aims to maximize $$d(\theta, \psi)$$. The game is at a Nash equilibrium at $$(\theta^*, \psi^*)$$ when neither player can improve its payoff by changing its parameters slightly. When GAN reaches a Nash equilibrium, we can say that it reached local convergence.
+Our starting point is the [Mescheder et al., 2017](https://arxiv.org/abs/1705.10461) Numerics of GANs paper. We can think of GAN training as a two-player non-cooperative game. The first player is a generator $$G_\theta(z)$$ with parameters $$\theta$$ that wants to maximize its payoff $$g(\theta, \psi)$$, the second player is a discriminator $$D_\psi(x)$$, with parameters $$\psi$$ that aims to maximize $$d(\theta, \psi)$$. The game is at a Nash equilibrium at $$(\theta^*, \psi^*)$$ when neither player can improve its payoff by changing its parameters slightly. When GAN reaches a Nash equilibrium, we can say that it reached local convergence.
 
 One method to train a GAN is to use a Simultaneous Gradient Descent, which can be thought of as a fixed point algorithm that applies an operator $$F(\theta, \psi)$$ to the parameters of the generator and discriminator $$(\theta, \psi)$$ respectively:
 
@@ -116,14 +116,11 @@ This analysis shows that adding MSE has the same impact as gradient regularisati
 
 ## Further reading:
 
-[1] Mescheder, Lars, Andreas Geiger, and Sebastian Nowozin. "Which training methods for GANs do actually converge?."
-International conference on machine learning. PMLR, 2018. https://arxiv.org/pdf/1801.04406.pdf
-[2] Mescheder, Lars, Sebastian Nowozin, and Andreas Geiger. "The numerics of gans."
-arXiv preprint arXiv:1705.10461 (2017). https://arxiv.org/pdf/1705.10461.pdf
-[3] Huszár Ferenc "GANs are Broken in More than One Way: The Numerics of GANs."
-GANs are Broken in More than One Way: The Numerics of GANs. https://www.inference.vc/my-notes-on-the-numerics-of-gans/
-[4] Bertsekas, Dimitri P. "Nonlinear programming." (1999). https://nms.kcl.ac.uk/osvaldo.simeone/bert.pdf
-[5] Theisel, Holger, and Tino Weinkauf. "Vector field metrics based on distance measures of first order critical points." (2002). http://wscg.zcu.cz/wscg2002/Papers_2002/D49.pdf
+- [1] Mescheder, Lars, Andreas Geiger, and Sebastian Nowozin. "Which training methods for GANs do actually converge?." International conference on machine learning. PMLR, 2018. https://arxiv.org/pdf/1801.04406.pdf
+- [2] Mescheder, Lars, Sebastian Nowozin, and Andreas Geiger. "The numerics of gans." arXiv preprint arXiv:1705.10461 (2017). https://arxiv.org/pdf/1705.10461.pdf
+- [3] Huszár Ferenc "GANs are Broken in More than One Way: The Numerics of GANs." GANs are Broken in More than One Way: The Numerics of GANs. https://www.inference.vc/my-notes-on-the-numerics-of-gans/
+- [4] Bertsekas, Dimitri P. "Nonlinear programming." (1999). https://nms.kcl.ac.uk/osvaldo.simeone/bert.pdf
+- [5] Theisel, Holger, and Tino Weinkauf. "Vector field metrics based on distance measures of first order critical points." (2002). http://wscg.zcu.cz/wscg2002/Papers_2002/D49.pdf
 
 
 

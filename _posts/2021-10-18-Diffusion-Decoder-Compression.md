@@ -168,7 +168,7 @@ There are a few changes that we would need to consider for the pipeline. Let's b
 
 Until the decoder, our architecture can remain the same, however, we would then need to upsample our quantised latent space to the image scale (diffusion models work on the image scale).
 
-We need to define a function $$\varepsilon\theta$$, which empirically is showed to work best as a U-Net architecture. The input of the U-Net will need to be a noise vector concatenated with an upsampled latent space.
+We need to define a function $$\varepsilon_\theta$$, which empirically is showed to work best as a U-Net architecture. The input of the U-Net will need to be a noise vector concatenated with an upsampled latent space.
 
 ### The training:
 

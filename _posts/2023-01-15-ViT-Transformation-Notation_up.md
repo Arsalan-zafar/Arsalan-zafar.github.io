@@ -17,7 +17,7 @@ mathjax: true
 
 
 
-When reviewingt the transformer literature and ViT literature, to get an intuitive understanding of the various model layers and how the manipulate the input token, I found it helpful to map out the data flow though the model in matrix notation. I couldn't find this anywhere so I thought I'd share it. 
+When reviewing the transformer and ViT literature, to get an intuitive understanding of the various model layers and how the input tokens are manipulated, I found it helpful to map out the data flow through the model in matrix notation. I couldn't find this anywhere so I thought I'd share it.
 
 ---
 
@@ -137,12 +137,14 @@ These logits $$Z$$ give the next-token distribution via softmax over the vocab d
 
 # Part II: ViT → Text (Single-Stream)
 
-Building on the nanoGPT foundation, we can now extend to Vision Transformers that process both image and text data in a unified architecture. The primary difference is that we'd now like to take our image, patchify it and map that patches into token so we can have the text and image data in the same format and domain. 
+Building on the nanoGPT foundation, we can now extend to Vision Transformers that process both image and text data in a unified architecture. The primary difference is that we'd now like to take our image, patchify it and map that patches into tokens so we can have the text and image data in the same format and domain to be processed by our attention layers. 
+
+We also assume that we want text output. 
 
 ## Notation / sizes (ViT Extension)
 
 - Batch $$B$$; image $$(H\times W)$$ with channels $$C$$
-- Patch size $$P$$ (assume $$P\mid H,\,P\mid W$$); number of patches $$N=\frac{H}{P}\cdot\frac{W}{P}$$
+- Patch size $$P$$; number of patches $$N=\frac{H}{P}\cdot\frac{W}{P}$$
 - Text length $$T$$, vocab size $$V$$
 - Model width $$D$$, MLP hidden width $$d_{\text{ff}}$$ (e.g., $$4D$$)
 - Single head so $$d_k=d_v=D$$ (keeps shapes simple)
@@ -272,6 +274,9 @@ These $$Z$$ are **text logits**; training uses cross-entropy on the text tokens 
 - **Final norm:** $$X_f=\mathrm{LN}_f(X^{(L)}) \;\in\; [B,S,D]$$
 - **Text only:** $$X_{f,\text{txt}}=X_f[:,N:,:] \;\in\; [B,T,D]$$
 - **Logits:** $$Z=X_{f,\text{txt}}E^\top$$ (tied) **or** $$Z=X_{f,\text{txt}}W_{\text{vocab}}$$ (untied) $$\;\in\; [B,T,V]$$
+
+
+I hope this is helpful in understanding the dataflow through a transformer block for images and text token. 
 
 ---
 
