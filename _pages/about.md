@@ -11,16 +11,10 @@ redirect_from:
 I’m the co-founder and CTO of Deep Render, where I led a team to build the world’s first AI video codec. Prior to Deep Render, I studied Machine Learning at Imperial College London and Aeronautical & Spacecraft Engineering at the University of Southampton. My interests lie in Machine Learning, Software Engineering, and Aerospace Engineering.
 
 
-Deep Render and AI codecs [2019-Now]
+Deep Render and AI codecs [2018-Now]
 ======
 
-I co-founded Deep Render in 2019 to reinvent video compression with AI. Over the last five years, we shipped an end-to-end AI codec, integrated it into FFmpeg and VLC, built a world-class ML research and ML eng team, and stood up a 200+-GPU AI compute data centre. We raised $15M from top-tier investors, secured and executed proofs-of-concept with hyperscalers, and filed 135+ patents, establishing one of the most substantive IP portfolios in AI-based compression.
-
-
-Various start-ups [2018-2019]
-======
-
-During this period I worked out of a hacker house, moving quickly from concept to prototype across three domains: machine learning and computer vision to tackle city traffic, smart-glasses that provided live subtitles for people who are deaf or hard of hearing using machine learning, and deep learning based rendering software for games and film. Each sprint strengthened my zero-to-one product skills—rapid prototyping, user research, and clear pivot decisions—and gave me a durable toolkit for building products under pressure.
+I co-founded Deep Render in 2018 to reinvent video compression with AI. Over the last 6 years, we shipped the world's first end-to-end AI codec. Along this journey, we built a world-class ML research and eng team, stood up a 200+ GPU data centre, raised $15M from top-tier investors,  secured and executed proofs-of-concept with hyperscalers, and filed 135+ patents.
 
 
 ML research at Imperial College London [2016-2018]
