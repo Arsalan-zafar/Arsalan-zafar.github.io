@@ -1,5 +1,5 @@
 ---
-title: 'MSE Loss and Information Maximization in Autoencoders: A Mathematical Equivalence'
+title: 'MSE Loss maximises information in the latent space'
 date: 2019-02-17
 permalink: /posts/2019/02/mse-information-equivalence-autoencoders/
 tags:

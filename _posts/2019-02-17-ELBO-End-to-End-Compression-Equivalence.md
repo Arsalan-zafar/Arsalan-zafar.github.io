@@ -1,5 +1,5 @@
 ---
-title: 'ELBO and End-to-End Learned Compression: A Mathematical Equivalence'
+title: 'The evidence lower bound is compression'
 date: 2019-02-28
 permalink: /posts/2019/02/elbo-end-to-end-compression-equivalence/
 tags:
