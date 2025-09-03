@@ -116,7 +116,7 @@ These logits $$Z$$ give the next-token distribution via softmax over the vocab d
 
 ---
 
-## NanoGPT Summary (shapes inline)
+## Summary 
 
 - **Embeddings:** $$X^{(0)}=E[\mathbf{t}]+P \;\in\; [B,T,D]$$
 - **Attn pre-LN:** $$\tilde{X}=\mathrm{LN}(X^{(\ell-1)}) \;\in\; [B,T,D]$$
@@ -252,7 +252,7 @@ These $$Z$$ are **text logits**; training uses cross-entropy on the text tokens 
 
 ---
 
-## One-page summary (shapes inline)
+## Summary 
 
 - **Image patches:** $$X_{\text{patch}}=\mathcal{U}(X_{\text{img}}) \;\in\; [B,N,CP^2]$$
 - **Patch embed:** $$I=X_{\text{patch}}W_{\text{patch}}+b_{\text{patch}} \;\in\; [B,N,D]$$
