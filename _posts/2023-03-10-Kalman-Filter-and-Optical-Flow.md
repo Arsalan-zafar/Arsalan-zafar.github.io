@@ -55,7 +55,7 @@ $$\mathbf{K}_t = \mathbf{P}_{t|t-1} \mathbf{H}_t^T (\mathbf{H}_t \mathbf{P}_{t|t
 $$\hat{\mathbf{x}}_{t|t} = \hat{\mathbf{x}}_{t|t-1} + \mathbf{K}_t (\mathbf{z}_t - \mathbf{H}_t \hat{\mathbf{x}}_{t|t-1})$$
 $$\mathbf{P}_{t|t} = (\mathbf{I} - \mathbf{K}_t \mathbf{H}_t) \mathbf{P}_{t|t-1}$$
 
-Where $$\mathbf{K}_t$$ is the Kalman gain, $$\mathbf{P}_{t|t}$$ is the state covariance matrix, and $$\hat{\mathbf{x}}_{t|t}$$ represents the optimal state estimate.
+Where $$\mathbf{K}_t$$ is the Kalman gain, $$\mathbf{P}_{t \mid t}$$ is the state covariance matrix, and $$\hat{\mathbf{x}}_{t \mid t}$$ represents the optimal state estimate.
 
 # Modelling optical flow with Kalman filters
 

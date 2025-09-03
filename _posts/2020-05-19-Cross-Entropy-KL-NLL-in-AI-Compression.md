@@ -52,7 +52,7 @@ Therefore
 
 $$H(p, q_\theta) \equiv \mathrm{NLL}(\theta) = D_{\mathrm{KL}}(p\,\|\,q_\theta) + H(p).$$
 
-Since \(H(p)\) does not depend on \(\theta\), the three quantities are **minimization-equivalent** in \(\theta\):
+Since $$H(p)$$ does not depend on $$\theta$$, the three quantities are **minimization-equivalent** in $$\theta$$:
 
 $$\arg\min_\theta H(p, q_\theta) \;=\; \arg\min_\theta D_{\mathrm{KL}}(p\,\|\,q_\theta) \;=\; \arg\min_\theta \mathrm{NLL}(\theta).$$
 
