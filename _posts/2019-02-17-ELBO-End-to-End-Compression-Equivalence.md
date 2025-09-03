@@ -37,14 +37,14 @@ Where:
 
 ## Encoder-decoder framework
 
-Consider an autoencoder with stochastic encoder $$q_\phi(y|x)$$ and decoder $$p_\theta(\hat{x}|y)$$:
+Consider an autoencoder with stochastic encoder $$q_\phi(y \mid x)$$ and decoder $$p_\theta(\hat{x} \mid y)$$:
 
-- **Encoder**: Maps input $$x$$ to latent representation $$y \sim q_\phi(y|x)$$
-- **Decoder**: Reconstructs $$\hat{x}$$ from latent $$y$$ via $$p_\theta(\hat{x}|y)$$
+- **Encoder**: Maps input $$x$$ to latent representation $$y \sim q_\phi(y \mid x)$$
+- **Decoder**: Reconstructs $$\hat{x}$$ from latent $$y$$ via $$p_\theta(\hat{x} \mid y)$$
 
 The rate can be expressed using the compressed representation:
 
-$$R(x) = \mathbb{E}_{q_\phi(y|x)} [-\log p_Y(y)]$$
+$$R(x) = \mathbb{E}_{q_\phi(y \mid x)} [-\log p_Y(y)]$$
 
 Where $$p_Y(y)$$ is the prior distribution over latents, determining the coding efficiency.
 
@@ -52,15 +52,15 @@ Where $$p_Y(y)$$ is the prior distribution over latents, determining the coding 
 
 ## Variational inference setup
 
-In variational inference, we approximate an intractable posterior $$p(y|x)$$ with a tractable variational distribution $$q_\phi(y|x)$$. The ELBO provides a lower bound on the log marginal likelihood:
+In variational inference, we approximate an intractable posterior $$p(y \mid x)$$ with a tractable variational distribution $$q_\phi(y \mid x)$$. The ELBO provides a lower bound on the log marginal likelihood:
 
-$$\log p(x) \geq \mathcal{L}_{ELBO}(x) = \mathbb{E}_{q_\phi(y|x)} [\log p_\theta(x|y)] - D_{KL}(q_\phi(y|x) \| p(y))$$
+$$\log p(x) \geq \mathcal{L}_{ELBO}(x) = \mathbb{E}_{q_\phi(y \mid x)} [\log p_\theta(x \mid y)] - D_{KL}(q_\phi(y \mid x) \| p(y))$$
 
 ## Decomposition of the ELBO
 
 The ELBO can be written as:
 
-$$\mathcal{L}_{ELBO}(x) = \underbrace{\mathbb{E}_{q_\phi(y|x)} [\log p_\theta(x|y)]}_{\text{Reconstruction term}} - \underbrace{D_{KL}(q_\phi(y|x) \| p(y))}_{\text{Regularization term}}$$
+$$\mathcal{L}_{ELBO}(x) = \underbrace{\mathbb{E}_{q_\phi(y \mid x)} [\log p_\theta(x \mid y)]}_{\text{Reconstruction term}} - \underbrace{D_{KL}(q_\phi(y \mid x) \| p(y))}_{\text{Regularization term}}$$
 
 The first term encourages accurate reconstruction, while the second term keeps the variational posterior close to the prior.
 
@@ -73,40 +73,40 @@ The profound insight is that each term in the ELBO directly corresponds to a com
 ### Reconstruction term equivalence
 
 The ELBO reconstruction term:
-$$\mathbb{E}_{q_\phi(y|x)} [\log p_\theta(x|y)]$$
+$$\mathbb{E}_{q_\phi(y \mid x)} [\log p_\theta(x \mid y)]$$
 
-Under a Gaussian decoder assumption $$p_\theta(x|y) = \mathcal{N}(x; \mu_\theta(y), \sigma^2 I)$$, this becomes:
+Under a Gaussian decoder assumption $$p_\theta(x \mid y) = \mathcal{N}(x; \mu_\theta(y), \sigma^2 I)$$, this becomes:
 
-$$\mathbb{E}_{q_\phi(y|x)} [\log p_\theta(x|y)] = -\frac{1}{2\sigma^2} \mathbb{E}_{q_\phi(y|x)} [\|x - \mu_\theta(y)\|^2] + \text{const}$$
+$$\mathbb{E}_{q_\phi(y \mid x)} [\log p_\theta(x \mid y)] = -\frac{1}{2\sigma^2} \mathbb{E}_{q_\phi(y \mid x)} [\|x - \mu_\theta(y)\|^2] + \text{const}$$
 
 This is exactly the negative expected distortion:
-$$\boxed{\mathbb{E}_{q_\phi(y|x)} [\log p_\theta(x|y)] \propto -D(x, \hat{x})}$$
+$$\boxed{\mathbb{E}_{q_\phi(y \mid x)} [\log p_\theta(x \mid y)] \propto -D(x, \hat{x})}$$
 
 ### Rate term equivalence
 
 The KL divergence term can be rewritten using the definition:
 
-$$D_{KL}(q_\phi(y|x) \| p(y)) = \mathbb{E}_{q_\phi(y|x)} \left[\log \frac{q_\phi(y|x)}{p(y)}\right]$$
+$$D_{KL}(q_\phi(y \mid x) \| p(y)) = \mathbb{E}_{q_\phi(y \mid x)} \left[\log \frac{q_\phi(y \mid x)}{p(y)}\right]$$
 
-$$= \mathbb{E}_{q_\phi(y|x)} [\log q_\phi(y|x)] - \mathbb{E}_{q_\phi(y|x)} [\log p(y)]$$
+$$= \mathbb{E}_{q_\phi(y \mid x)} [\log q_\phi(y \mid x)] - \mathbb{E}_{q_\phi(y \mid x)} [\log p(y)]$$
 
 The second term is exactly the expected code length under the prior:
-$$\mathbb{E}_{q_\phi(y|x)} [-\log p(y)] = R(x)$$
+$$\mathbb{E}_{q_\phi(y \mid x)} [-\log p(y)] = R(x)$$
 
 Therefore:
-$$\boxed{D_{KL}(q_\phi(y|x) \| p(y)) = H(q_\phi(y|x)) + R(x)}$$
+$$\boxed{D_{KL}(q_\phi(y \mid x) \| p(y)) = H(q_\phi(y \mid x)) + R(x)}$$
 
-Where $$H(q_\phi(y|x))$$ is the entropy of the encoder distribution.
+Where $$H(q_\phi(y \mid x))$$ is the entropy of the encoder distribution.
 
 ## Complete equivalence derivation
 
 Starting with the ELBO:
-$$\mathcal{L}_{ELBO}(x) = \mathbb{E}_{q_\phi(y|x)} [\log p_\theta(x|y)] - D_{KL}(q_\phi(y|x) \| p(y))$$
+$$\mathcal{L}_{ELBO}(x) = \mathbb{E}_{q_\phi(y \mid x)} [\log p_\theta(x \mid y)] - D_{KL}(q_\phi(y \mid x) \| p(y))$$
 
 Substituting our equivalences:
-$$\mathcal{L}_{ELBO}(x) = -\frac{1}{2\sigma^2} D(x, \hat{x}) - H(q_\phi(y|x)) - R(x) + \text{const}$$
+$$\mathcal{L}_{ELBO}(x) = -\frac{1}{2\sigma^2} D(x, \hat{x}) - H(q_\phi(y \mid x)) - R(x) + \text{const}$$
 
-Rearranging and noting that $$H(q_\phi(y|x))$$ doesn't affect optimization when the encoder architecture is fixed:
+Rearranging and noting that $$H(q_\phi(y \mid x))$$ doesn't affect optimization when the encoder architecture is fixed:
 
 $$\boxed{\max_{\phi,\theta} \mathcal{L}_{ELBO}(x) \equiv \min_{\phi,\theta} [R(x) + \lambda D(x, \hat{x})]}$$
 
@@ -124,7 +124,7 @@ This equivalence means we can optimize compression systems using standard variat
 
 ## Rate allocation
 
-The KL term $$D_{KL}(q_\phi(y|x) \| p(y))$$ provides a principled way to allocate bits across different components of the latent representation. Elements of $$y$$ that deviate significantly from the prior $$p(y)$$ consume more bits, creating automatic rate allocation.
+The KL term $$D_{KL}(q_\phi(y \mid x) \| p(y))$$ provides a principled way to allocate bits across different components of the latent representation. Elements of $$y$$ that deviate significantly from the prior $$p(y)$$ consume more bits, creating automatic rate allocation.
 
 ## Prior design
 
@@ -140,7 +140,7 @@ The choice of prior $$p(y)$$ directly impacts compression efficiency. This equiv
 
 For non-Gaussian decoders, the equivalence still holds but the distortion metric changes. For example:
 
-**Laplacian decoder**: $$p_\theta(x|y) = \text{Laplace}(x; \mu_\theta(y), b)$$ gives $$\ell_1$$ distortion
+**Laplacian decoder**: $$p_\theta(x \mid y) = \text{Laplace}(x; \mu_\theta(y), b)$$ gives $$\ell_1$$ distortion
 **Categorical decoder**: For discrete data, leads to cross-entropy distortion
 
 ## Continuous relaxations
@@ -153,9 +153,9 @@ Real compression systems require discrete representations, but the ELBO framewor
 
 ## Entropy modeling
 
-The rate term $$R(x) = \mathbb{E}_{q_\phi(y|x)} [-\log p_Y(y)]$$ requires accurate entropy modeling. The ELBO framework justifies sophisticated approaches:
+The rate term $$R(x) = \mathbb{E}_{q_\phi(y \mid x)} [-\log p_Y(y)]$$ requires accurate entropy modeling. The ELBO framework justifies sophisticated approaches:
 
-$$p_Y(y) = \int p(y|z) p(z) dz$$
+$$p_Y(y) = \int p(y \mid z) p(z) dz$$
 
 Where $$z$$ represents side information that improves entropy estimation.
 
@@ -172,7 +172,7 @@ The ELBO objective balances reconstruction quality against rate through the KL t
 
 The equivalence informs architectural choices:
 
-**Encoder complexity**: More powerful encoders $$q_\phi(y|x)$$ can better approximate true posteriors
+**Encoder complexity**: More powerful encoders $$q_\phi(y \mid x)$$ can better approximate true posteriors
 **Decoder capacity**: Balanced with encoder to avoid underfitting reconstruction
 **Prior parameterization**: Learned priors $$p_\psi(y)$$ that adapt to data statistics
 
