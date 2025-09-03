@@ -20,7 +20,7 @@ Understanding this connection is crucial for anyone working in AI-based compress
 
 At the heart of modern compression lies a trade-off between two competing objectives: how much information we need to transmit (rate) and how accurately we can reconstruct the original data (distortion). Traditional compression methods approached this through carefully engineered codecs. However, Ballé's insight was that this rate-distortion optimization is mathematically equivalent to maximizing the Evidence Lower BOund in variational inference.
 
-This equivalence is not merely conceptual—it's a precise mathematical relationship that allows us to directly apply variational inference techniques to compression problems. The implications are profound: every advancement in variational methods can potentially improve compression performance, and every insight from compression can inform variational inference.
+The implications are profound: every advancement in variational methods can potentially improve compression performance, and every insight from compression can inform variational inference.
 
 # Mathematical framework: The compression objective
 
@@ -132,49 +132,7 @@ The choice of prior $$p(y)$$ directly impacts compression efficiency. This equiv
 
 **Hyperpriors**: Learning priors from data to minimize rate
 **Context models**: Using spatial/temporal context to improve prior accuracy
-**Mixture priors**: Handling multimodal latent distributions
 
-# Advanced considerations
-
-## Non-Gaussian decoders
-
-For non-Gaussian decoders, the equivalence still holds but the distortion metric changes. For example:
-
-**Laplacian decoder**: $$p_\theta(x \mid y) = \text{Laplace}(x; \mu_\theta(y), b)$$ gives $$\ell_1$$ distortion
-**Categorical decoder**: For discrete data, leads to cross-entropy distortion
-
-## Continuous relaxations
-
-Real compression systems require discrete representations, but the ELBO framework operates on continuous variables. The equivalence guides approaches like:
-
-**Quantization-aware training**: Simulating quantization during training
-**Soft quantization**: Using temperature-controlled relaxations
-**Straight-through estimators**: Approximating gradients through discrete operations
-
-## Entropy modeling
-
-The rate term $$R(x) = \mathbb{E}_{q_\phi(y \mid x)} [-\log p_Y(y)]$$ requires accurate entropy modeling. The ELBO framework justifies sophisticated approaches:
-
-$$p_Y(y) = \int p(y \mid z) p(z) dz$$
-
-Where $$z$$ represents side information that improves entropy estimation.
-
-# Implementation insights
-
-## Training dynamics
-
-The ELBO objective balances reconstruction quality against rate through the KL term. This creates natural curriculum learning:
-
-1. **Early training**: High KL weight encourages learning meaningful representations
-2. **Late training**: Reduced KL weight fine-tunes reconstruction quality
-
-## Architecture design
-
-The equivalence informs architectural choices:
-
-**Encoder complexity**: More powerful encoders $$q_\phi(y \mid x)$$ can better approximate true posteriors
-**Decoder capacity**: Balanced with encoder to avoid underfitting reconstruction
-**Prior parameterization**: Learned priors $$p_\psi(y)$$ that adapt to data statistics
 
 # Looking forward
 
