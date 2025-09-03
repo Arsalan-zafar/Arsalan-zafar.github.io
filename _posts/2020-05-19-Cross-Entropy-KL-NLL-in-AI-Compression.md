@@ -1,17 +1,17 @@
 ---
 title: 'Cross-Entropy, KL and NLL are the same objective in AI compression'
-date: 2020-05-19
+date: 2019-05-19
 permalink: /posts/2020/05/cross-entropy-kl-nll-ai-compression/
 tags:
   - AI based compression
   - Information Theory
   - Likelihood
   - Entropy coding
-published: False
+published: True
 mathjax: true
 ---
 
-In AI-based compression we model the distribution of data and then entropy-code it. The training loss we use is the cross-entropy between the unknown true data distribution and our model. This post shows, cleanly and with expectations, that for data sampled from the true distribution \(p\) and a parametric model \(q_\theta\) we learn, the cross-entropy, the Kullback–Leibler divergence and the negative log-likelihood are optimization-equivalent objectives. In practice this means we are doing maximum likelihood estimation (MLE) and simultaneously minimizing expected code length.
+In learned compression, we model the distribution of data and then entropy-code it. The training loss we use is the cross-entropy between the unknown true data distribution and our model distribution which in a simplest case is a fully factorized distubition of standard normals. There is often some confusion about the obejective used in compression so I thought I'd use this post to clarify it. This post shows, cleanly and with expectations, that for data sampled from the true distribution \(p\) and a parametric model \(q_\theta\) we learn, the cross-entropy, the Kullback–Leibler divergence and the negative log-likelihood are optimization-equivalent objectives. In practice this means we are doing maximum likelihood estimation (MLE) and simultaneously minimizing expected code length.
 
 ## Setup
 
