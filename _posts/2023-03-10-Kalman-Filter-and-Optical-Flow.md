@@ -6,23 +6,19 @@ tags:
   - AI based compression
   - AI codecs
   - video compression
-published: True 
+published: False 
 mathjax: true  
 ---
 
-In video compression, we have to send optical flow information to enable a warping operation between the previous frame and the current frame. Though this costs only <10% of the total bits, it would still be beneficial if we could predict this cheaply rather than send it through the bitstream. 
+In video compression, we have to send optical flow information to enable a warping operation between the previous frame and the current frame. Though this costs <10% of the total bits, it would still be beneficial if we could predict this cheaply rather than send it through the bitstream. 
 
-There is regularity and structure in motion, think about panning motion, which should be well modelled by linear quadratic approximator with gaussian error assumptions like a Kalman filter. This post explores how we can leverage Kalman filters to predict optical flow motion vectors, potentially eliminating the need to transmit this information entirely.
-
-# The fundamental question
-
-Can we use Kalman filters to predict motion at time $$t$$, given the motion at time $$t-1$$, $$t-2$$, and so on? The answer is promising. Given a set of optical flow maps, where each pixel predicts x, y motion, we can absolutely use the motion pixels from previous flow maps to predict the motion for the current flow map using a carefully designed Kalman filter model.
+There is regularity and structure in motion, think about panning motion, which should be well modelled by linear quadratic approximator with gaussian error assumptions like a Kalman filter. This post explores how we can leverage Kalman filters to predict optical flow motion vectors, potentially eliminating the need to transmit this information entirely. The fundamental question is: Can we use Kalman filters to predict motion at time $$t$$, given the motion at time $$t-1$$, $$t-2$$,?
 
 # Background: The Kalman filter framework
 
 The Kalman filter is an optimal recursive estimator that provides the best linear unbiased estimate of a system's state given noisy observations. It operates under the assumption that both the system dynamics and observations follow Gaussian distributions - a reasonable assumption for many motion patterns in video sequences.
 
-## Core mathematical framework
+## Core framework
 
 The Kalman filter operates on two fundamental equations that describe the system dynamics and observations:
 

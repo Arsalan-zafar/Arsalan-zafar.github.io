@@ -40,7 +40,7 @@ From an information theory standpoint, we want to maximize the mutual informatio
 
 $$I(\mathbf{x}; \mathbf{z}) = H(\mathbf{x}) - H(\mathbf{x}|\mathbf{z})$$
 
-Where $$H(\mathbf{x})$$ is the entropy of the input and $$H(\mathbf{x}|\mathbf{z})$$ is the conditional entropy of the input given the latent representation.
+Where $$H(\mathbf{x})$$ is the entropy of the input and $$H(\mathbf{x} \mid \mathbf{z})$$ is the conditional entropy of the input given the latent representation.
 
 ## The key connection: Gaussian assumption
 
@@ -77,7 +77,7 @@ $$H(\mathbf{x}|\mathbf{z}) = \frac{d}{2} \log\left(\frac{2\pi e}{d} \mathbb{E}[\
 
 **Step 4: Express mutual information**
 
-Since $$H(\mathbf{x})$$ is fixed for a given dataset, maximizing mutual information $$I(\mathbf{x}; \mathbf{z})$$ is equivalent to minimizing $$H(\mathbf{x}|\mathbf{z})$$:
+Since $$H(\mathbf{x})$$ is fixed for a given dataset, maximizing mutual information $$I(\mathbf{x}; \mathbf{z})$$ is equivalent to minimizing $$H(\mathbf{x} \mid \mathbf{z})$$:
 
 $$\max I(\mathbf{x}; \mathbf{z}) = \max [H(\mathbf{x}) - H(\mathbf{x}|\mathbf{z})] = \min H(\mathbf{x}|\mathbf{z})$$
 
@@ -114,15 +114,15 @@ While our derivation assumes Gaussian reconstruction errors, the core insight ex
 
 This analysis provides foundation for understanding Variational Autoencoders (VAEs), where the information-theoretic perspective becomes explicit through the Evidence Lower BOund (ELBO):
 
-$$\log p(\mathbf{x}) \geq \mathbb{E}_{q(\mathbf{z}|\mathbf{x})}[\log p(\mathbf{x}|\mathbf{z})] - D_{KL}(q(\mathbf{z}|\mathbf{x}) \| p(\mathbf{z}))$$
+$$\log p(\mathbf{x}) \geq \mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x} \mid \mathbf{z})] - D_{KL}(q(\mathbf{z} \mid \mathbf{x}) \mid p(\mathbf{z}))$$
 
-The reconstruction term $$\mathbb{E}_{q(\mathbf{z}|\mathbf{x})}[\log p(\mathbf{x}|\mathbf{z})]$$ directly corresponds to our MSE loss under Gaussian assumptions.
+The reconstruction term $$\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x} \mid \mathbf{z})]$$ directly corresponds to our MSE loss under Gaussian assumptions.
 
 ## Practical training considerations
 
 This theoretical framework suggests several practical insights:
 
-**Loss function design**: MSE loss is not just convenient—it's theoretically optimal for information preservation under Gaussian assumptions.
+**Loss function design**: MSE loss is not just convenient, it's theoretically optimal for information preservation under Gaussian assumptions.
 
 **Regularization strategies**: Any regularization that reduces the capacity of the latent space will create a trade-off between compression and information preservation.
 

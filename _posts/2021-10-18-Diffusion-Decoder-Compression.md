@@ -182,6 +182,7 @@ where $$\varepsilon\theta$$ has an additional input to force it to be conditiona
 
 The encoding works exactly the same, but the decoding differs. After the $$\hat{y}$$ is produced, we sample a $$\varepsilon$$, and perform the computation as shown in Figure 7 for some number of steps to get out final output $$\hat{x}$$.
 
-There are some upcoming sprints exploring the viability of diffusion models in compression and some initial POC runs show interesting results!
 
 ![Figure 9: Simple architecuture of a diffusion decoder based comprression pipeline. Here, the noise profile is denoted with $$eta$$, not $z$.](/images/diffusion_figure_9.png)
+
+I ran the above model and it produced competitive results on the first iteration. I have high hopes for the compression performance, but the largest concern is with execution time. We'd need to see a lot more algorithmic progress in diffusion decoders to enable efficient decoding.
