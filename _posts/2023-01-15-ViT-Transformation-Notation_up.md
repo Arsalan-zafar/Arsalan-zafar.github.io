@@ -1,7 +1,7 @@
 ---
 title: 'Transformer and ViT dataflow notation'
-date: 2023-01-15
-permalink: /posts/2023/01/vit-transformation-notation/
+date: 2021-01-15
+permalink: /posts/2021/01/vit-transformation-notation/
 tags:
   - Vision Transformer
   - ViT
