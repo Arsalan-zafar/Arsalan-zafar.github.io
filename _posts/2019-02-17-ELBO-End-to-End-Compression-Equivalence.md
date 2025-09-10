@@ -8,7 +8,7 @@ tags:
   - ELBO
   - information theory
   - machine learning
-published: True 
+published: False 
 mathjax: true  
 ---
 

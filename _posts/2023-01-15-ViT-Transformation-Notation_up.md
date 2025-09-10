@@ -10,7 +10,7 @@ tags:
   - Machine Learning
   - Transformers
   - Mathematical Notation
-  - nanoGPT
+  - miniGPT
 published: True 
 mathjax: true    
 ---
@@ -21,17 +21,17 @@ When reviewing the transformer and ViT literature, to get an intuitive understan
 
 ---
 
-# Part I: NanoGPT Foundation
+# Part I: miniGPT Foundation
 
-This section covers the matrix notation for nanoGPT.
+This section covers the matrix notation for miniGPT.
 
-## Notation / sizes (nanoGPT)
+## Notation / sizes (miniGPT)
 
 - Batch $$B$$, sequence length $$T$$, vocab size $$V$$
 - Model width $$D$$ (aka $$d_{\text{model}}$$)
 - MLP hidden width $$d_{\text{ff}}$$ (often $$4D$$)
 - Single head so $$d_k=d_v=D$$ (keeps shapes simple)
-- Pre-LayerNorm residual layout (GPT-2/NanoGPT style)
+- Pre-LayerNorm residual layout (GPT-2/miniGPT style)
 
 ---
 
@@ -137,7 +137,7 @@ These logits $$Z$$ give the next-token distribution via softmax over the vocab d
 
 # Part II: ViT → Text (Single-Stream)
 
-Building on the nanoGPT foundation, we can now extend to Vision Transformers that process both image and text data in a unified architecture. The primary difference is that we'd now like to take our image, patchify it and map that patches into tokens so we can have the text and image data in the same format and domain to be processed by our attention layers. 
+Building on the miniGPT foundation, we can now extend to Vision Transformers that process both image and text data in a unified architecture. The primary difference is that we'd now like to take our image, patchify it and map that patches into tokens so we can have the text and image data in the same format and domain to be processed by our attention layers. 
 
 We also assume that we want text output. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'MSE Loss maximises information in the latent space'
+title: 'MSE Loss  stat information in the latent space'
 date: 2019-02-17
 permalink: /posts/2019/02/mse-information-equivalence-autoencoders/
 tags:
@@ -7,7 +7,7 @@ tags:
   - information theory
   - machine learning
   - compression
-published: True 
+published: False 
 mathjax: true  
 ---
 
